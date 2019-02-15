@@ -29,19 +29,20 @@ def build_list(input_str, plcontinue="", url_list=[]):
     l1 = response.json().get("query").get("pages")
     for v in l1.values():
         temp = v.get('links')
-        url_list += [t.get('title') for t in temp if t.get('ns') == 0]
+        if temp:
+            url_list += [t.get('title') for t in temp if t.get('ns') == 0]
         if "batchcomplete" in response.json():
             plcontinue = None
         else:
             plcontinue = response.json().get("continue").get("plcontinue")
     if plcontinue is not None:
+        print("plcontinue {}".format(plcontinue))
         return(build_list(input_str, plcontinue, url_list))
     else:
         url_list = [t.replace(' ', '_') for t in url_list]
         return(url_list)
-"""
+
 if __name__ == "__main__":
-   the_list =  build_list("Continent")
+   the_list =  build_list("Cucumberasf")
    print(*the_list, sep="\n")
    print("Number of links {}".format(len(the_list)))
-"""
