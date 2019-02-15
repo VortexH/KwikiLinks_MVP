@@ -33,12 +33,11 @@ def build_list(input_str, plcontinue=""):
                 break
             try:
                 temp = v.get('links')
-                url_list += [t.get('title') for t in temp if t.isnumeric()]
+                url_list += [t.get('title') for t in temp if t.get('ns') == 0]
                 '''
                 for t in temp:
                     try:
                         if type(int(t)) is int:
-                            print("SUMIN")
                             pass
                     except:
                         print(t)
@@ -80,3 +79,6 @@ def BFS(start, end):
                 path[link] = path[curr] + [link]
                 queue.append(link)
     return None
+
+#print(BFS("Cucumber", "Barter")) 
+print(BFS("New", "Paragliding")) 
