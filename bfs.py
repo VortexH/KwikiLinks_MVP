@@ -86,5 +86,5 @@ def dict_format(start, end ):
     url = "https://en.wikipedia.org/wiki/"
     return {i: url+i for i in lists}
 
-#print(BFS("Cucumber", "Barter")) 
-print(dict_format("New", "Paragliding")) 
+#print(dict_format("Cucumber", "Barter")) 
+
