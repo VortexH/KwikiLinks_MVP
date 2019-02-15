@@ -10,7 +10,7 @@ app = Flask(__name__)
 app.url_map.strict_slashes = False
 
 
-@app.route('/styles/<path:path>')
+@app.route('/css/<path:path>')
 def static_css(path):
     """ static css path """
     return send_from_directory('static/css', path)
@@ -22,9 +22,15 @@ def static_js(path):
     return send_from_directory('static/js', path)
 
 
+@app.route('/img/<path:path>')
+def static_img(path):
+    """ static imp path """
+    return send_from_directory('static/img', path)
+
+
 @app.route('/vendor/<path:path>')
 def static_vendor(path):
-    """ static css path """
+    """ static vendor misc path """
     return send_from_directory('static/vendor', path)
 
 
