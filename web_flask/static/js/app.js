@@ -22,9 +22,7 @@ let clearLoading = function () {
 };
 
 
-
-
-sendMessageButton.onclick = function(el){
+function sendSearch(el){
     console.log(el);
     console.log(firstw.value);
     console.log(lastw.value);
@@ -34,7 +32,7 @@ sendMessageButton.onclick = function(el){
         lastw: lastw.value
     }
     sendMessageButton.setAttribute("disabled", "disabled");
-    setLoading();
+    // setLoading();
 
     fetch("/kwiklinks", {
         method: "POST", 
@@ -57,6 +55,35 @@ sendMessageButton.onclick = function(el){
             resList.appendChild(li);
         });
         clearLoading();
-        sendMessageButton.removeAttribute("disabled");
+        // sendMessageButton.removeAttribute("disabled");
+    }).catch(function(error) {
+        // clearLoading();
+        sendMessageButton.onclick = sendSearch;
+        
+        console.log(error);
     });
 };
+
+sendMessageButton.onclick = sendSearch;
+
+// Email Subscription
+// let email = document.getElementById('inputEmail');
+// let subscribeButton = document.getElementById('subscribeButton');
+
+// subscribeButton.onclick = function (el) {
+//   console.log(el);
+//   console.log(email.value);
+
+//   let data = {
+//     email: email.value
+//   }
+
+//   fetch("/emailsubscribe", {
+//     method: "POST",
+//     headers: new Headers({ 'content-type': 'application/json' }),
+//     body: JSON.stringify(data)
+//   }).then(function (response) {
+//     // catch return from server promise, pullout json
+//     return response.json();
+//   });
+// };

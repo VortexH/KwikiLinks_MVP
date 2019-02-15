@@ -49,13 +49,18 @@ def post_kwiklinks():
         return jsonify(error="Not a JSON"), 400
     try:
         kwik_json = request.get_json()
-        response = bfs.BFS(kwik_json["firstw"], kwik_json["lastw"])
     except BadRequest:
         return jsonify(error="Not a JSON"), 400
 
     print(kwik_json)
 
-    return response
+    try:
+        response = bfs.BFS(kwik_json["firstw"], kwik_json["lastw"])
+        return jsonify(response)
+    except Exception as e:
+        kwik_json['ERRROR'] = str(e)
+        return jsonify(kwik_json)
+
 
 HOST = getenv('STINGRAY_HOST', '0.0.0.0')
 PORT = getenv('STINGRAY_PORT', '5000')
