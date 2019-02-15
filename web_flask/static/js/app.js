@@ -1,9 +1,10 @@
 /* TODO: add event listeners for on click and close */
 
-
+//grabbing the text inputs
 let firstw = document.getElementById('firstw');
 let lastw = document.getElementById('lastw');
 
+//grabbing the button
 let sendMessageButton = document.getElementById('sendMessageButton');
 
 sendMessageButton.onclick = function(el){
@@ -27,6 +28,7 @@ sendMessageButton.onclick = function(el){
         // append results to ul so that we know servers do things
         console.log(JSON.stringify(myJson));
         let resList = document.getElementById('results-ul');
+        //foreach does a loop through the response json from the server, appending each to the ul
         Object.keys(myJson).forEach(function (item, key) {
             console.log(key);
             console.log(item);
