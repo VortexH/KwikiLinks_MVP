@@ -7,6 +7,23 @@ let lastw = document.getElementById('lastw');
 //grabbing the button
 let sendMessageButton = document.getElementById('sendMessageButton');
 
+
+let setLoading = function () {
+  let search = $('#sendMessageButton');
+  if (!search.data('normal-text')) {
+    search.data('normal-text', search.html());
+  }
+  search.html(search.data('loading-text'));
+};
+
+let clearLoading = function () {
+  let search = $('#sendMessageButton');
+  search.html(search.data('normal-text'));
+};
+
+
+
+
 sendMessageButton.onclick = function(el){
     console.log(el);
     console.log(firstw.value);
@@ -16,6 +33,8 @@ sendMessageButton.onclick = function(el){
         firstw: firstw.value,
         lastw: lastw.value
     }
+    sendMessageButton.setAttribute("disabled", "disabled");
+    setLoading();
 
     fetch("/kwiklinks", {
         method: "POST", 
@@ -37,5 +56,7 @@ sendMessageButton.onclick = function(el){
             li.appendChild(document.createTextNode(item + ": " + myJson[item]));
             resList.appendChild(li);
         });
+        clearLoading();
+        sendMessageButton.removeAttribute("disabled");
     });
 };
