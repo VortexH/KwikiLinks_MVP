@@ -22,8 +22,14 @@ def static_js(path):
     return send_from_directory('static', path)
 
 
+@app.route('/vendor/<path:path>')
+def static_vendor(path):
+    """ static css path """
+    return send_from_directory('static', path)
+
+
 @app.route('/', strict_slashes=False)
-def filters():
+def index():
     """ basic index """
     return render_template('index.html')
 
