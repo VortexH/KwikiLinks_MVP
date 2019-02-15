@@ -13,19 +13,19 @@ app.url_map.strict_slashes = False
 @app.route('/styles/<path:path>')
 def static_css(path):
     """ static css path """
-    return send_from_directory('static', path)
+    return send_from_directory('static/css', path)
 
 
 @app.route('/js/<path:path>')
 def static_js(path):
     """ static css path """
-    return send_from_directory('static', path)
+    return send_from_directory('static/js', path)
 
 
 @app.route('/vendor/<path:path>')
 def static_vendor(path):
     """ static css path """
-    return send_from_directory('static', path)
+    return send_from_directory('static/vendor', path)
 
 
 @app.route('/', strict_slashes=False)
