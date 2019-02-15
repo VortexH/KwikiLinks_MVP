@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import requests
 
 
@@ -81,4 +82,4 @@ def BFS(start, end):
     return None
 
 #print(BFS("Cucumber", "Barter")) 
-print(BFS("New", "Paragliding")) 
+print(BFS("New", "Extreme_sport")) 
