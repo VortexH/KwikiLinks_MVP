@@ -49,7 +49,7 @@ def post_kwiklinks():
         return jsonify(error="Not a JSON"), 400
     try:
         kwik_json = request.get_json()
-        response = bfw.BFS(kwik_json["firstw"], kwik_json["lastw"])
+        response = bfs.BFS(kwik_json["firstw"], kwik_json["lastw"])
     except BadRequest:
         return jsonify(error="Not a JSON"), 400
 
