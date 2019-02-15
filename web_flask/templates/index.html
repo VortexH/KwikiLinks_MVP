@@ -25,10 +25,14 @@
 
 <body id="page-top">
 
+  <!-- Load Facebook SDK for Javascript -->
+  <div id="fb-root"></div>
+  <script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
+
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-      <img class="img-fluid mb-5 d-block mx-auto" id="logosmall" src="../static/img/logo_square_nobg_small.png" alt="">
+      <img class="img-fluid d-block mx-auto" id="logosmall" src="../static/img/logo_square_nobg_small-alt.png" alt="">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">KwikiLinks</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
@@ -43,7 +47,7 @@
             <a class="nav-link js-scroll-trigger" href="#results">Results</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#footerLink">Contact</a>
+            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
           </li>
         </ul>
       </div>
@@ -58,11 +62,11 @@
         <h1 class="mx-auto my-0 text-uppercase">KwikiLinks</h1>
 
         <div class="form-group">
-          <label for="firstw">First Word:</label>
+          <h4><label for="firstw">First Word:</label></h4>
           <input type="text" class="form-control" id="firstw" placeholder="Search for...">
         </div>
         <div class="form-group">
-          <label for="lastw">Last Word:</label>
+          <h4><label for="lastw">Last Word:</label></h4>
           <input type="text" class="form-control" id="lastw" placeholder="Search for...">
         </div>
         <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Go!</a>
@@ -70,13 +74,19 @@
     </div>
   </header>
 
-  <!-- About Section -->
+  <!-- Results Section -->
   <section id="results" class="about-section text-center">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto">
           <h2 class="text-white mb-4">Degrees of Separation</h2>
-          <p class="text-white-50">This is where we will put the count and the links to all the different degrees.</p>
+          <p class="text-white-50">This is where we will put:
+            <ul class="text-white-50">
+              <li>Count</li>
+              <li>Article for each degree</li>
+              <li>URL for each article</li>
+            </ul>
+          </p>
         </div>
       </div>
 
@@ -85,7 +95,7 @@
 
 
   <!-- Contact Section -->
-  <section class="contact-section bg-black">
+  <section id="contact" class="contact-section bg-black">
     <div class="container">
 
       <div class="row">
@@ -105,7 +115,11 @@
           <div class="card py-4 h-100">
             <div class="card-body text-center">
               <i class="fas fa-envelope text-primary mb-2"></i>
-              <h4 class="text-uppercase m-0"></h4>
+              <h4 class="text-uppercase m-0">
+                <div class="fb-like" data-href="http://stingray.holberton.us/" data-layout="box_count" data-action="like"
+                data-size="large" data-show-faces="false" data-share="true">
+              </div>
+            </h4>
               <hr class="my-4">
               <div class="small text-black-50">
                 <a href="#"></a>
@@ -126,17 +140,6 @@
         </div>
       </div>
 
-      <div class="social d-flex justify-content-center">
-        <a href="#" class="mx-2">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="#" class="mx-2">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="#" class="mx-2">
-          <i class="fab fa-github"></i>
-        </a>
-      </div>
 
     </div>
   </section>
