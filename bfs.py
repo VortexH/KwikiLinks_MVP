@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import requests
 
 
@@ -80,5 +81,10 @@ def BFS(start, end):
                 queue.append(link)
     return None
 
-#print(BFS("Cucumber", "Barter")) 
-print(BFS("New", "Paragliding")) 
+def dict_format(start, end ):
+    lists = BFS(start, end)
+    url = "https://en.wikipedia.org/wiki/"
+    return {i: url+i for i in lists}
+
+#print(dict_format("Cucumber", "Barter")) 
+
