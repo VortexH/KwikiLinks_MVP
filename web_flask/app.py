@@ -5,7 +5,7 @@ starts a Flask web application
 from flask import Flask, render_template, send_from_directory, jsonify, abort, request
 from os import getenv
 from werkzeug.exceptions import BadRequest
-
+import bfs
 
 app = Flask(__name__)
 app.url_map.strict_slashes = False
@@ -49,28 +49,13 @@ def post_kwiklinks():
         return jsonify(error="Not a JSON"), 400
     try:
         kwik_json = request.get_json()
+        response = bfs.BFS(kwik_json["firstw"], kwik_json["lastw"])
     except BadRequest:
         return jsonify(error="Not a JSON"), 400
 
     print(kwik_json)
 
-    return jsonify(kwik_json)
-
-
-@app.route('/emailsubscribe', methods=['POST'])
-def post_email():
-    """ makes a new place """
-    if request.mimetype != 'application/json':
-        return jsonify(error="Not a JSON"), 400
-    try:
-        email_json = request.get_json()
-    except BadRequest:
-        return jsonify(error="Not a JSON"), 400
-
-    print(email_json)
-
-    return jsonify(email_json)
-
+    return response
 
 HOST = getenv('STINGRAY_HOST', '0.0.0.0')
 PORT = getenv('STINGRAY_PORT', '5000')

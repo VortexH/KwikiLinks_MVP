@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<HTML lang="en">
+    <HEAD>
+        <TITLE>PATH</TITLE>
+    </HEAD>
+    <BODY>
+      <H1>{{ links|length }} Links</H1>
+        <UL>
+	      {% for link in links %}
+          <LI><B>{{ link }}</B></LI>
+	      {% endfor %}
+	      </UL>
+    </BODY>
+</HTML>
